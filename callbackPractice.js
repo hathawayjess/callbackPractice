@@ -18,6 +18,15 @@ and what you should write is the sayHi function that makes the code above work,
    sayHi('Hi Katie', function(thingToSay){
       alert(thingToSay); //should alert ('Hi Katie')'
    });
+
+   function sayHi(str, cb) {
+      cb(str);
+   }
+    
+     sayHi('Hi Katie', function(thingToSay){
+      alert(thingToSay); //should alert ('Hi Katie')'
+   });
+
     
     
 */
@@ -28,6 +37,12 @@ and what you should write is the sayHi function that makes the code above work,
   
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
+
+function first(arr, cb) {
+  cb(arr[0]);
+ 
+}
+
 first(names, function(firstName){
   console.log('The first name in names is ' + firstName)
 });
@@ -42,6 +57,10 @@ first(names, function(firstName){
   //Code Here for last
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
+
+function last(arr, cb) {
+  cb(arr[arr.length-1]);
+}
 last(names, function(lastName){
   console.log('The last name in names is ' + lastName);
 });
