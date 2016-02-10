@@ -129,20 +129,20 @@ contains(names, 'Colt', function(result){
 
     //Code Here for uniq
 
-    function uniq(arr, callback) {
-      var obj = {};
-      var arr2 = [];
-      for (var i = 0; i < arr.length; i++) {
-        if (!(arr[i] in obj)) {
-          arr2.push(arr[i]);
-          obj[arr[i]] = true;
-        }
-      }
-      return arr2;
-      callback(arr2);
+    var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
+    
+var uniq = function(arr, callback) {
+  var uniqArr = arr.sort();
+  
+  for(var i = uniqArr.length - 1; i >= 0; i--) {
+    if (uniqArr[i] === uniqArr[i - 1]) {
+      uniqArr.splice(i, 1);
+      
     }
+  }
+   callback(uniqArr);
+};
 
-var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
 });
